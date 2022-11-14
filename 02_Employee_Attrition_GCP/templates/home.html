@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>HR Analytics</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Employee Attrition Predictor</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="satisfaction_level" placeholder="satisfaction_level ( 0 to 1 )" required="required" /><br>
+    	<input type="text" name="last_evaluation" placeholder="last_evaluation (0 to 1 )" required="required" /><br>
+        <input type="text" name="number_project" placeholder="number_project" required="required" /><br>
+        <input type="text" name="average_monthly_hours" placeholder="average_monthly_hours" required="required" /><br>
+        <input type="text" name="user_time_spend_company" placeholder="user_time_spend_company" required="required" /><br>
+        <input type="text" name="Work_accident" placeholder="Work_accident ( 0 or 1 )" required="required" /><br>
+        <input type="text" name="promotion_last_5years" placeholder="promotion_last_5years (0 or 1)" required="required" /><br>
+        <input type="text" name="salary" placeholder="salary (1 for low , 2 for medium , 3 for high)" required="required" /><br>
+        <div data-tip="{'IT':0, 'RandD':1, 'accounting':2, 'hr':3, 'management':4, 'marketing':5,'product_mng':6, 'sales':7, 'support':8, 'technical':9}">
+            <input type="text" name="department" placeholder="department" required="required" />
+        </div>
+
+
+       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
