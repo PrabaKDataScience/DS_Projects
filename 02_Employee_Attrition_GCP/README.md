@@ -1,4 +1,4 @@
-# Google-Cloud-Platform-Deployment
+# Employee Attrition Predictor- GCP 
 
 1. app.py --> main file (flask app) --> while diffusing in GCP rename it to main.py
 2. app.yaml --> Specify the python environment (GCP will allocate a python environment specified in this for the application)
